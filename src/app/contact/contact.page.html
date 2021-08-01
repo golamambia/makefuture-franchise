@@ -1,0 +1,75 @@
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Contact Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <div class="body_warrper">
+      <!-- <header class="header_area">
+        <div class="container">
+          <button routerLink="/sidebar" class="btn-back"><img src="assets/images/back.png" alt="back" title=""></button>
+         
+          <h2>Contact Us</h2>
+        </div>
+      </header> -->
+
+      <div class="body_area">
+
+        <div class="platform_main_area">
+          <div class="main_body_area">
+            <div class="container">
+                
+                <div class="address_area">
+                    <div class="address_box">
+                        <img src="assets/images/phone.png" alt="phone" title="" class="icon" />
+                        <h3>Phone :</h3>
+                        <p>{{data_contact?.phone}}</p>
+                    </div>
+                    <div class="address_box">
+                        <img src="assets/images/mail.png" alt="mail" title="" class="icon" />
+                        <h3>Email :</h3>
+                        <p>{{data_contact?.email}}</p>
+                    </div>
+                    <div class="address_box">
+                        <img src="assets/images/location2.png" alt="mail" title="" class="icon" />
+                        <h3>Address :</h3>
+                        <p [innerHtml]="data_contact?.address"></p>
+                    </div>
+                </div>
+                
+                <div class="form_box">
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="fname" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Name" />
+                    </div>
+                    
+                    <div class="form-group">
+          
+           <input type="text" placeholder="Email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email"name="email" ngModel #emailref="ngModel">
+          <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class ="alert alert-danger">
+           <div [hidden]="!emailref.errors?.pattern">
+             Invalid pattern
+           </div> 
+          </div> 
+          </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Phone" maxlength="10" (keypress)="onlyNumberKey($event)" />
+                    </div>
+                    
+                    <div class="form-group">
+                       <textarea class="form-control" placeholder="Message" [(ngModel)]="message" [ngModelOptions]="{standalone: true}"></textarea>
+                    </div>
+                   <button class="btn" (click)="submit()">Submit</button>
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  
+</ion-content>

@@ -1,0 +1,56 @@
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Find A Course</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+    <div class="body_warrper">
+      <!-- <header class="header_area">
+        <div class="container">
+          <button routerLink="/sidebar" class="btn-back"><img src="assets/images/back.png" alt="back" title=""></button>
+          
+          <h2>Find A Course</h2>
+        </div>
+      </header> -->
+
+      <div class="body_area">
+
+        <div class="platform_main_area">
+          <div class="main_body_area">
+            <div class="container">
+                <div class="find_course_area">
+                    <div class="d-flex justify-content-between">
+                        <button class="btn-course" (click)="getCourse('1')">10th</button>
+                        <button class="btn-course" (click)="getCourse('2')">12th</button>
+                        <button class="btn-course" (click)="getCourse('3')">Graduation <!-- <i class="zmdi zmdi-caret-down"></i> --></button>
+                    </div>
+                </div>
+                <div *ngFor="let cl of course_data">
+                <div class="course_box" routerLink="/course-details/{{cl.slug}}">
+                    <div class="img_box"><img src="{{image_path + cl.image}}" alt="" title="" /></div>
+                    <h3>{{cl.name}}</h3>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac auctor</p> -->
+                    <button class="btn-link">Find out More >></button>
+                </div>
+                </div>
+               <div class="course_box1" *ngIf="!course_data">
+                    <h3 style="color: #9e0909;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;">No record found</h3>
+                </div>
+               
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  
+</ion-content>

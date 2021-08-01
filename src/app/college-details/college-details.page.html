@@ -1,0 +1,275 @@
+
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Collage Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <div class="body_warrper">
+      <!-- <header class="header_area">
+        <div class="container">
+          <button routerLink="/find-college" class="btn-back"><img src="assets/images/back.png" alt="back" title=""></button>
+         
+          <h2>Collage Details</h2>
+        </div>
+      </header> -->
+
+      <div class="body_area">
+
+        <div class="platform_main_area">
+          <div class="main_body_area">
+            <div class="container">
+                <div class="collage_details_heading">
+                    <div class="icon" *ngIf="data_college?.logo"><img src="{{image_path + data_college?.logo}}" alt="icon" tittle=""></div>
+                    <h1>{{data_college?.college_name}}</h1>
+                    <ul>
+                        <li>
+                            <img src="assets/images/icon21.png">
+                            {{data_college?.city_name}}, {{data_college?.state_name}}
+                        </li>
+                        <li>
+                            <img src="assets/images/icon22.png">
+                            {{data_college?.estd_info}},
+                        </li>
+                        <li>
+                            <img src="assets/images/icon23.png">
+                            {{data_college?.rank_info}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="banner_area">
+                    <div class="d-flex justify-content-between">
+                        <button class="btn-banner " (click)="photo_map('photo')" [ngClass]="{'active': photo_mapval == 'photo'}"  >Photos</button>
+                        <button class="btn-banner" (click)="photo_map('map')" [ngClass]="{'active': photo_mapval == 'map'}" >Map</button>
+                    </div>
+                    <div  *ngIf="photo_mapval == 'photo'">
+                    <!-- <div class="banner_box">
+                        <img src="assets/images/banner2.png" alt="banner image" title="" />
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="banner_box_two"><img src="assets/images/banner2.png" alt="banner image" title=""></div>
+                        <div class="banner_box_two"><img src="assets/images/banner3.png" alt="banner image" title=""></div>
+                    </div> -->
+                    <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+
+        <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
+          (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
+          <ion-slide *ngFor="let s of all_img">
+            <img *ngIf="s.image" src="{{image_path + s.image}}">
+           <!--  <span class="slide-text">Slide id</span> -->
+          </ion-slide>
+        </ion-slides>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+                </div>
+                 <div  *ngIf="photo_mapval == 'map'">
+                    <div class="mapbox" style="margin-top: 20px;">
+
+   <div [innerHtml]="embedurl"></div>
+ </div>
+
+                 </div>
+
+
+
+
+                </div>
+                <div class="top_course_area">
+                    <h3>Top Courses</h3>
+                    <div class="top_course_list">
+                        <ul>
+                            <li *ngFor="let crs of course">
+                                <div class="top_course" routerLink="/course-details/{{crs.slug}}">
+                                    <img src="{{image_path + crs.image}}" alt="" title="" class="img">
+                                    <h4>{{crs.name}}</h4>
+                                    <button class="btn-link">{{crs.completed_in}} years >></button>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <a style="text-decoration: none;" class="btn-primary btn2" href="{{image_path + data_college?.brochure}}" 
+  download="brochure">
+  Download Brochure
+</a>
+                    <!-- <button class="btn-primary btn2">Download Brochure</button> -->
+                    <button class="btn-primary" (click)="goto_form(data_college?.state_id,data_college?.id)" >APPLY NOW</button>
+                </div>
+                <div class="select">
+                    <ul>
+                        <li>
+                            <button class="btn-course " (click)="college_tab('info')" [ngClass]="{'active': tab_val == 'info'}">Info</button>
+                        </li>
+                        <li  *ngIf="data_college?.course_fee">
+                            <button class="btn-course" (click)="college_tab('course')" [ngClass]="{'active': tab_val == 'course'}">Courses & Fees</button>
+                        </li>
+                       <li  *ngIf="data_college?.admission">
+                            <button class="btn-course" (click)="college_tab('admission')" [ngClass]="{'active': tab_val == 'admission'}">Admission {{current_year}}</button>
+                        </li>
+                        <li  *ngIf="data_college?.placement">
+                            <button class="btn-course" (click)="college_tab('placement')" [ngClass]="{'active': tab_val == 'placement'}">Placement</button>
+                        </li>
+                        <li  *ngIf="data_college?.hostel">
+                            <button class="btn-course" (click)="college_tab('hostel')" [ngClass]="{'active': tab_val == 'hostel'}">Hostel</button>
+                        </li>
+                       <li  *ngIf="data_college?.news_articles">
+                            <button class="btn-course" (click)="college_tab('article')" [ngClass]="{'active': tab_val == 'article'}">News & Articles</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div  *ngIf="tab_val == 'info'">
+                     <div class="contain_box">
+                    <div [innerHtml]="data_college?.description"></div>
+                    <!-- <button class="btn-link">Read More</button> -->
+                </div>
+                    
+                </div>
+                <div  *ngIf="tab_val == 'course'">
+                     <div class="contain_box">
+                    <div [innerHtml]="data_college?.course_fee"></div>
+                    <!-- <button class="btn-link">Read More</button> -->
+                </div>
+                    
+                </div>
+                <div  *ngIf="tab_val == 'admission'">
+                     <div class="contain_box">
+                     <div [innerHtml]="data_college?.admission"></div>
+                    <!-- <button class="btn-link">Read More</button> -->
+                </div>
+                    
+                </div>
+                <div  *ngIf="tab_val == 'placement'">
+                     <div class="contain_box">
+                     <div [innerHtml]="data_college?.placement"></div>
+                    <!-- <button class="btn-link">Read More</button> -->
+                </div>
+                    
+                </div>
+                <div  *ngIf="tab_val == 'hostel'">
+                     <div class="contain_box">
+                    <div [innerHtml]="data_college?.hostel"></div>
+                    <!-- <button class="btn-link">Read More</button> -->
+                </div>
+                    
+                </div>
+                <div  *ngIf="tab_val == 'article'">
+                     <div class="contain_box">
+                    <div [innerHtml]="data_college?.news_articles"></div>
+                    <!-- <button class="btn-link">Read More</button> -->
+                </div>
+                    
+                </div>
+               
+                <!-- <div class="contain_box">
+                    <h5>Find Courses at Indian Institute of Management (IIMB)</h5>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search Courses..">
+                        <button class="btn-search"><i class="zmdi zmdi-search"></i></button>
+                    </div>
+                </div> -->
+               <!--  <div class="select">
+                    <h6>Select degree :</h6>
+                    <ul>
+                        <li>
+                            <button class="btn-course">PGPBA</button>
+                        </li>
+                        <li>
+                            <button class="btn-course">Fellowship</button>
+                        </li>
+                        <li>
+                            <button class="btn-course">Ph.D</button>
+                        </li>
+                        <li>
+                            <button class="btn-course">PGP-PPM</button>
+                        </li>
+                        <li>
+                            <button class="btn-course">Executive</button>
+                        </li>
+                    </ul>
+                </div> -->
+               <!--  <div class="select">
+                    <h6>Select Stream :</h6>
+                    <ul>
+                        <li>
+                            <button class="btn-course">Management</button>
+                        </li>
+                        <li>
+                            <button class="btn-course">Science</button>
+                        </li>
+                        <li>
+                            <button class="btn-course">Arts</button>
+                        </li>
+                    </ul>
+                </div> -->
+              <!--   <div class="contain_box_two">
+                    <h3>Post Graduate Programme in Enterprise Management [PGPEM]</h3>
+                    <p>
+                        2 year, Degree, On Campus, Post Graduation<br/>
+                        Total Fees : <span class="price">₹1,850,000</span>
+                    </p>
+                    <p>
+                        <strong>Exams Accepted :</strong> CAT / GMAT / GRE<br/>
+                        <strong>Ranking :</strong> #2 Managment - NIRE<br/>
+                        <strong>1 Streams :</strong> Enterprise Management
+                    </p>
+                    <button class="btn-link">Admission Guide2021</button>
+                    <button class="btn-link btn-link2">Download Brochure</button>
+                </div> -->
+               <!--  <div class="contain_box_two">
+                    <h3>Post Graduate Programme in Enterprise Management [PGPEM]</h3>
+                    <p>
+                        2 year, Degree, On Campus, Post Graduation<br/>
+                        Total Fees : <span class="price">₹1,850,000</span>
+                    </p>
+                    <p>
+                        <strong>Exams Accepted :</strong> CAT / GMAT / GRE<br/>
+                        <strong>Ranking :</strong> #2 Managment - NIRE<br/>
+                        <strong>1 Streams :</strong> Enterprise Management
+                    </p>
+                    <button class="btn-link">Admission Guide2021</button>
+                    <button class="btn-link btn-link2">Download Brochure</button>
+                </div> -->
+                <div class="banner_area">
+                    <div class="d-flex justify-content-between">
+                        <button class="btn-banner " (click)="news_faculty('news')" [ngClass]="{'active': news_facultyval == 'news'}">News</button>
+                        <button class="btn-banner" (click)="news_faculty('faculty')" [ngClass]="{'active': news_facultyval == 'faculty'}">Faculties</button>
+                    </div>
+                    <div  *ngIf="news_facultyval == 'news'">
+                    <div class="course_box" *ngFor="let ns of news" routerLink="/news-details/{{ns.slug}}">
+                        <div class="img_box"><img src="{{image_path + ns.bannerimage}}" alt="{{ns.title}}" title=""></div>
+                        <button class="btn-link">{{ns.created_at | date:'MMM dd, yyyy'}}</button>
+                        <h3>{{ns.title}}</h3>
+                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac auctor</p> -->
+                    </div>
+                </div>
+                <div  *ngIf="news_facultyval == 'faculty'">
+                    <div class="course_box" style="padding-left: 0;" *ngFor="let fs of faculty">
+                        <!-- <div class="img_box"><img src="assets/images/course-bg3.jpg" alt="course bg" title=""></div> -->
+                        <!-- <button class="btn-link">05th Dec, 2020</button> -->
+                        <h3>{{fs.title}}</h3>
+                        <p>{{fs.designation}}</p>
+                    </div>
+                </div>
+                </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  
+</ion-content>

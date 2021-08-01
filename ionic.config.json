@@ -1,0 +1,7 @@
+{
+  "name": "make_franchise",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

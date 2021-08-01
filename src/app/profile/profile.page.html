@@ -1,0 +1,79 @@
+
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header> 
+<ion-content>
+
+
+    <div class="wrapper">
+        <!-- <header class="header_area">
+            <div class="container">
+                <button class="btn-back"><img src="images/back.png" alt="back" title=""></button>
+                <button class="btn-nav"><img src="images/navbar.png" alt="back" title=""></button>
+                <h2>Edit Profile</h2>
+            </div>
+        </header> -->
+
+        <div class="profile_area">
+            <div class="img_area">
+                <img src="{{imag_path + user_img}}" alt="">
+            </div>
+        </div>
+
+        <div class="form_area">
+
+            <div class="container">
+                <form>
+
+                    <div class="form-group">
+                        <label>First Name</label>
+                         <input type="text" class="form-control"  placeholder="First Name"  [(ngModel)]="f_name" [ngModelOptions]="{standalone: true}" value="{{userData?.response_data?.first_name}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                      <input type="text" class="form-control"  placeholder="Last Name"  [(ngModel)]="l_name" [ngModelOptions]="{standalone: true}" value="{{userData?.response_data.last_name}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control"  placeholder="Email" value="{{userData?.response_data.email}}" readonly="">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" class="form-control"  placeholder="Phone"  [(ngModel)]="phone_number" [ngModelOptions]="{standalone: true}" value="{{userData?.response_data.phone_number}}" >
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" class="form-control"  placeholder="Address"  [(ngModel)]="address" [ngModelOptions]="{standalone: true}" value="{{userData?.response_data.address}}" >
+                    </div>
+                    <div class="form-group">
+                        <label>Photo</label>
+                         <input type="file" (change)="importFile($event)"  [(ngModel)]="imgget" [ngModelOptions]="{standalone: true}" class="form-control" >
+                    </div>
+                    <!-- <div class="form-group">
+                        <label>City</label>
+                        <input type="text" class="form-control" placeholder="City">
+                    </div>
+                    <div class="form-group">
+                        <label>Postal Code</label>
+                        <input type="text" class="form-control" placeholder="Postal Code">
+                    </div> -->
+                    
+
+                    <button class="rb_btn" (click)="updateProfile()"><span>update</span></button>
+
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</ion-content>

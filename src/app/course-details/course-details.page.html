@@ -1,0 +1,40 @@
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Couse Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <div class="body_warrper">
+      <!-- <header class="header_area">
+        <div class="container">
+          <button routerLink="/find-course" class="btn-back"><img src="assets/images/back.png" alt="back" title=""></button>
+         
+          <h2>Couse Details</h2>
+        </div>
+      </header> -->
+
+      <div class="body_area">
+
+        <div class="platform_main_area">
+          <div class="main_body_area">
+            <div class="container">
+                <div class="course_img_box">
+                    <img *ngIf="course_data?.image" src="{{image_path + course_data?.image}}" alt="course" title=""  class="img_box"/>
+                    <h1>{{course_data?.name}}</h1>
+                </div>
+               <div [innerHtml]="course_data?.description"></div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  
+</ion-content>

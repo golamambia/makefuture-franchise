@@ -1,0 +1,184 @@
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Apply Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="body_warrper">
+      <!-- <header class="header_area">
+        <div class="container">
+          <button routerLink="/sidebar" class="btn-back"><img src="assets/images/back.png" alt="back" title=""></button>
+       
+          <h2>Apply Form</h2>
+        </div>
+      </header> -->
+
+      <div class="body_area">
+
+        <div class="platform_main_area">
+          <div class="main_body_area">
+            <div class="container">
+                
+                <div class="apply_area">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Student Full Name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" />
+                    </div>
+                    <div class="form-group">
+                        <input type="date" class="form-control" placeholder="DOB" [(ngModel)]="dob" [ngModelOptions]="{standalone: true}" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Father's Name" [(ngModel)]="father_name" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Father's Mobile" [(ngModel)]="father_mobile" [ngModelOptions]="{standalone: true}" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Mother's Name" [(ngModel)]="mother_name" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Mother's Mobile" [(ngModel)]="mother_mobile" [ngModelOptions]="{standalone: true}" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Nationality" [(ngModel)]="nationality" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Caste" [(ngModel)]="cast" [ngModelOptions]="{standalone: true}" />
+                    </div>
+                    <div class="form-group">
+                       <select class="form-control" name="gender" [(ngModel)]="gender" [ngModelOptions]="{standalone: true}" >
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Nationality Citizenship / Aadhaar No." [(ngModel)]="citizenship" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Student's Mobile" [(ngModel)]="student_mobile" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email Address:" [(ngModel)]="email" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Parmanent Address:" [(ngModel)]="parmanent_address" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Local Guardian Address:" [(ngModel)]="local_address" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="card">
+                        <div class="card-heading">
+                            Course Apply For
+                        </div>
+                        <div class="card-contain">
+                            <div class="form-group">
+                       <select class="form-control" name="gender" [(ngModel)]="state_id" [ngModelOptions]="{standalone: true}" >
+                        <option value="">Select state</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+                    </div>
+
+
+                    <div class="form-group">
+                       <select class="form-control" name="college_id" [(ngModel)]="college_id" [ngModelOptions]="{standalone: true}" >
+                        <option value="">Select College</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+                    </div>
+                    <div class="form-group">
+                       <select class="form-control" name="gender" [(ngModel)]="academic_year" [ngModelOptions]="{standalone: true}" >
+                        <option value="">Select Academic Year</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+                    </div>
+
+
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-heading">
+                          Academic Details  
+                        </div>
+                        <div class="card-contain">
+                            
+        <div class="form-group">
+          
+          <input type="text" class="form-control" placeholder="Subject Name / Course Details" name="subject_name[]" value="" data-validation-engine="validate[required]" id="form-validation-field-0">
+        </div>
+      
+        <div class="form-group">
+         
+          <input type="text" class="form-control" placeholder="Marks Obtain" name="marks[]" value="">
+        </div>
+  
+        <div class="form-group">
+         
+          <input type="text" class="form-control" placeholder="Percentage" name="percentage[]" value="">
+        </div>
+      
+        <div class="form-group">
+          <label>Upload Documents:</label>
+          <input type="file" class="form-control" name="document[]">
+        </div>
+      
+        <div class="form-group">
+          <label>&nbsp;</label><br>
+          <button class="btn btn-danger remove" type="button"><i class="fa fa-minus"></i></button>
+        </div>
+     
+
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-heading">
+                            Referral Details
+                        </div>
+                        <div class="card-contain">
+                            
+                            <div class="form-group">
+             <!--  <label>Referral code</label> -->
+              <input type="text" class="form-control" placeholder="Have a Referral code?" name="referral_code" value="">
+            </div>
+             <div class="form-group">
+              <!-- <label>Coupon code</label> -->
+              <input type="text" class="form-control" placeholder="Have a Coupon code?" name="coupon_code" >
+            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-heading">
+                            Fee Details
+                        </div>
+                        <div class="card-contain">
+                             <div class="form-group">
+              <!-- <label>Course</label> -->
+              <select class="form-control" name="course_id" id="course_id" data-validation-engine="validate[required]">
+                <option value="">Select</option>
+              </select>
+            </div>
+             <label>&nbsp;</label><br>
+            <strong>₹</strong><strong class="price">0.00</strong>
+
+                        </div>
+                    </div>
+                    <button class="btn">submit</button>
+                </div>
+                
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  
+</ion-content>

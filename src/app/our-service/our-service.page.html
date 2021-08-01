@@ -1,0 +1,101 @@
+
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Services</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  
+    <div class="body_warrper">
+      <!-- <header class="header_area">
+        <div class="container">
+          <button routerLink="/sidebar" class="btn-back"><img src="assets/images/back.png" alt="back" title=""></button>
+         
+          <h2>Services</h2>
+        </div>
+      </header> -->
+
+      <div class="body_area">
+
+        <div class="platform_main_area">
+          <div class="main_body_area">
+            <div class="container">
+                <div *ngFor="let ds of data_service">
+                    
+               
+                <div class="service_box" *ngIf="ds?.type==3">
+                    <div class="img_box">
+                        <img src="{{image_path + ds?.image}}" alt="service bg" title="" /></div>
+                    <h3>{{ds?.title}}</h3>
+                   
+                   <div [innerHtml]="ds?.body"></div>
+                    <!-- <button class="btn-link">Read More</button> -->
+                </div>
+                 </div>
+               <!--  <div class="service_box">
+                    <div class="img_box"><img src="assets/images/service-bg2.jpg" alt="service bg" title="" /></div>
+                    <h3>Franchise</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium sem eget suscipit feugiat. Maecenas consequat viverra enim vitae hendrerit...</p>
+                    <button class="btn-link">Read More</button>
+                </div> -->
+
+                <div class="form_box">
+                    <h3>Enquiry Now</h3>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="fname" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="First Name" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="lame" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Last Name" />
+                    </div>
+                    <div class="form-group">
+          
+           <input type="text" placeholder="Email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email"name="email" ngModel #emailref="ngModel">
+          <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class ="alert alert-danger">
+           <div [hidden]="!emailref.errors?.pattern">
+             Invalid pattern
+           </div> 
+          </div> 
+          </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Phone" maxlength="10" (keypress)="onlyNumberKey($event)" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="subject" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Subject" />
+                    </div>
+                    <div class="form-group">
+                        
+                        <select class="form-control" [(ngModel)]="state" [ngModelOptions]="{standalone: true}">
+                            <option value="">State</option>
+                            <option *ngFor="let st of states" value="{{st.id}}">{{st.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        
+                        <select class="form-control" [(ngModel)]="course" [ngModelOptions]="{standalone: true}">
+                            <option value="">Course</option>
+                            <option *ngFor="let cs of courses" value="{{cs.id}}">{{cs.name}}</option>
+                        </select>
+                    </div>
+                    <!-- <div class="form-group">
+                        <div class="d-flex justify-content-between">
+                            <input type="text" class="form-control mr-5" placeholder="State" />
+                            <input type="text" class="form-control" placeholder="Course" />
+                        </div>
+                    </div> -->
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Message" [(ngModel)]="message" [ngModelOptions]="{standalone: true}"></textarea>
+                    </div>
+                    <button class="btn" (click)="submit()">Submit</button>
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  
+</ion-content>

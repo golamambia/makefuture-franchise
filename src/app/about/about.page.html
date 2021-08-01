@@ -1,0 +1,123 @@
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">About us</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  
+    <div class="body_warrper">
+        <!-- <header class="header_area">
+            <div class="container">
+                <button class="btn-back"><img src="images/back.png" alt="back" title=""></button>
+                <button class="btn-nav"><img src="images/navbar.png" alt="back" title=""></button>
+                <h2>about us</h2>
+            </div>
+        </header> -->
+
+        <div class="body_area">
+
+            <div class="platform_main_area">
+                <div class="main_body_area">
+                    <div class="container">
+                      
+
+                      <div *ngFor="let a of data_about">
+                                              
+                       <div class="vision_area" *ngIf="a.type==2">
+                        
+                            <div class="img_box" style="height: auto;">
+                                <img src="{{image_path + a.image2}}" alt="vision" title="" />
+                            </div>
+                            <h3 [innerHtml]="a.title">
+                        
+                      </h3>
+                            <div [innerHtml]="a.body"></div>
+                        </div>
+                       
+                        <div class="vision_area" *ngIf="a.type==3">
+                        
+                            <div class="img_box">
+                                <img src="{{image_path + a.image}}" alt="vision" title="" />
+                            </div>
+                            <h3 [innerHtml]="a.title">
+                        
+                      </h3>
+                            <div [innerHtml]="a.body"></div>
+                        </div>
+
+                        
+                        <div class="vision_area" *ngIf="a.type==4">
+                            <div class="img_box">
+                                <img src="{{image_path + a.image}}" alt="vision" title="" />
+                                <div class="video-main">
+                                    <div class="promo-video">
+                                        <div class="waves-block">
+                                            <div class="waves wave-1"></div>
+                                            <div class="waves wave-2"></div>
+                                            <div class="waves wave-3"></div>
+                                        </div>
+                                    </div>
+
+                                    <a data-fancybox="" href="{{a.btn_url}}" class="video video-popup mfp-iframe" data-lity=""><i class="fa fa-play"></i></a>
+                                </div>
+                            </div>
+                            <h3 [innerHtml]="a.title">
+                        
+                      </h3>
+                            <div [innerHtml]="a.body"></div>
+                        </div>
+                         </div>
+
+                    </div>
+                    <div class="our_partner_area">
+                        <div class="container">
+                            <h3>Our Partners</h3>
+                            <div class="partner_carasal">
+                                <div class="owl-carousel ourpartners-carousel">
+
+                                    <div class="partner_box" *ngFor="let p of partner">
+                                     
+ <img src="{{image_path + p.image}}" alt=" partner image" title="" />
+                                        
+                                    </div>
+                                    
+                                </div>
+                               <!--  <div class="partner_nav">
+                                    <button class="btn"></button>
+                                    <button class="btn active"></button>
+                                    <button class="btn"></button>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio_area">
+                        <div class="container">
+                            <h3>Our Portfolio</h3>
+                            <ul>
+                                                    <div *ngFor="let a of data_about">
+                                <li *ngIf="a.type==7">
+                                    <div class="portfolio_img_box">
+                                      <a href="{{image_path + a.image}}" data-fancybox="images" data-caption="My caption">
+<img src="{{image_path + a.image}}">
+</a>
+                                       
+                                    </div>
+                                </li>
+                              </div>
+                                
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</ion-content>

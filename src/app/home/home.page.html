@@ -1,0 +1,157 @@
+
+<ion-content>
+	
+    <div class="body_warrper">
+      <header class="header_area">
+        <div class="container">
+          <button (click)="openMenu()" class="btn-nav"><img src="assets/images/navbar2.png" alt="back" title=""></button>
+          <div class="search_area">
+            <div class="search">
+              <input type="text" class="form-control" placeholder="">
+              <button class="btn-search"><i class="zmdi zmdi-search"></i></button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="body_area">
+
+        <div class="banner_area">
+          <div class="banner">
+              <div class="banner_contain">
+                  <h1>We Provide <strong>Online Courses</strong> on Your Time</h1>
+              </div>
+          </div>
+        </div>
+
+        <div class="platform_main_area">
+          <div class="main_body_area">
+            <div class="container">
+
+              <div class="about_area">
+                  <ul *ngFor="let about of extra_data">
+                      <li *ngIf="about.type==2">
+
+                          <div class="about_img_box" style="height: auto;">
+                              <img src="{{image_path + about.image}}" alt="about image" title="" />
+                          </div>
+                          <div class="about_contain_box">
+                              <h3>{{about.sub_title}}</h3>
+                             
+                                <div [innerHtml]="about.body"></div>
+                          </div>
+                      </li>
+                     <!--  <li  *ngIf="about.type==2">
+                          <div class="about_contain_box">
+                              <h3>{{about.sub_title}}</h3>
+                             
+                                <div [innerHtml]="about.body"></div>
+                          </div>
+                      </li> -->
+                  </ul>
+              </div>
+
+               <div  class="services_area" *ngFor="let service of extra_data">
+               
+                   <h2 *ngIf="service.type==3 && service.image==null && service.image2==null"><h2 [innerHtml]="service.title"></h2> </h2>
+               
+               
+                <div  class="service_box" *ngIf="service.type==3 && service.image!=null" routerLink="/our-service">
+                    <img  src="{{image_path + service.image}}" alt="service image" title="" />
+                    <div *ngIf="service.type==3" class="contain_box">
+                        <h3 [innerHtml]="service.title"></h3>
+                        <!--  <p [innerHtml]="service.body"></p> -->
+                    </div>
+                </div>
+              
+              </div>
+
+              <h3 class="h3">Top Colleges <button class="view_link" routerLink="/find-college">View All>></button></h3>
+            </div>
+            <div class="category_main_area">
+              <div class="container">
+                <div class="category_listing">
+                  <ul>
+
+                   <li *ngFor="let top_colg of top_college">
+                      <div class="top_collage_box" routerLink="/college-details/{{top_colg.slug}}">
+                          <div class="img_box">
+                              <img src="{{image_path + top_colg.bannerimage}}" alt="collage image" title="" />
+                          </div>
+                          <button class="link">{{top_colg.college_name}} - {{top_colg.city_name}}, {{top_colg.state_name}}</button>
+                          <p>₹{{top_colg.price}}</p>
+                          <p [innerHtml]="top_colg.body"></p>
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <h3 class="h3">Top Courses <button class="view_link" routerLink="/find-course">View All>></button></h3>
+              <div class="courses_box" *ngFor="let top_crs of all_data?.courses">
+                  <div class="img_box" routerLink="/course-details/{{top_crs.slug}}"><img *ngIf="top_crs.image" src="{{image_path + top_crs.image}}" /></div>
+                  <h3>{{top_crs.name}}</h3>
+                  <p *ngIf="top_crs.description" [innerHtml]="top_crs.description.slice(0, 50)"></p>
+                  <button class="btn_link" routerLink="/course-details/{{top_crs.slug}}">Find out More >></button>
+              </div>
+             
+
+            </div>
+
+            <div class="our_partner_area">
+                <div class="container">
+                    <h3>Our Partners</h3>
+                    <div class="partner_carasal">
+                       <div class="owl-carousel ourpartners-carousel">
+
+                             <div class="partner_box" *ngFor="let partner of all_data?.partners">
+                                <img src="{{image_path + partner.image}}" alt=" partner image" title="" />
+                            </div>
+                           
+                        </div>
+                        <!-- <div class="partner_nav">
+                            <button class="btn"></button>
+                            <button class="btn active"></button>
+                            <button class="btn"></button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="category_main_area">
+              <div class="container">
+                <h3 class="h3">Latest News</h3>
+                <div class="category_listing">
+                  <ul>
+                    <li *ngFor="let news of all_data?.news.data">
+                      <div class="w-285">
+
+                        <div class="courses_box" routerLink="/news-details/{{news.slug}}">
+                            <div class="img_box"><img src="{{image_path + news.bannerimage}}" /></div>
+                            <h3>
+                              <strong>{{news.created_at | date:'dd MMM, yyyy'}}</strong>
+                              {{news.title}}
+                            </h3>
+                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac auctor</p> -->
+                            <button class="btn_link">Read More >></button>
+                        </div>
+                        
+
+                      </div>
+                    </li>
+                    
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  
+</ion-content>
