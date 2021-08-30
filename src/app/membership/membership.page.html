@@ -1,0 +1,47 @@
+
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Memebership</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+
+    <div class="body_warrper">
+        <!-- <header class="header_area">
+            <div class="container">
+                <button class="btn-back"><img src="images/back.png" alt="back" title=""></button>
+                <button class="btn-nav"><img src="images/navbar.png" alt="back" title=""></button>
+                <h2>Memebership</h2>
+            </div>
+        </header> -->
+
+        <div class="body_area">
+
+            <div class="platform_main_area">
+                <div class="main_body_area">
+                    <div class="container">
+                        <div class="membership_details_box">
+                            <h3>Your Membership Details</h3>
+                            <button class="btn-info mb-1">{{totalAdmissionWithPoints?.total_admission_done_approve}} Admission. You Are {{membership_current?.name}}</button>
+                            <button *ngIf="membership_next" class="btn-success">Need {{need_point}} Admission To Achieve {{membership_next?.name}}</button>
+                            <div *ngIf="memberships?.length">
+                                 <h4 *ngFor="let ms of memberships;"><strong>{{ms.name}}:</strong> admission target {{ms.admission}}</h4>
+                            </div>
+                           
+                          <!--   <h4><strong>Premium Member:</strong> admission target 1-25.</h4>
+                            <h4><strong>Gold Member:</strong> admission target 26-50.</h4>
+                            <h4><strong>Platinum Member:</strong> admission target 51-100.</h4> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</ion-content>

@@ -1,0 +1,64 @@
+
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Authorization</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+
+    <div class="apply_for_payout_area">
+        <div class="shape_box"><img src="assets/images/sape9.png" alt="sape9" title="" /></div>
+        <div class="apply_for_payout">
+            <div class="container">
+                <!-- <h1>Apply For Authorization</h1> -->
+                <div class="form_box">
+                     <div *ngIf="list?.length">
+                    <div class="authorize_box"  *ngFor="let value of list">
+                        <div class="authorize">
+                            <h3>State</h3>
+                            <h4>{{value.state_name}}</h4>
+                        </div>
+                        <div class="authorize">
+                            <h3>College</h3>
+                            <h4>{{value.college_name }}</h4>
+                        </div>
+                        <div class="authorize">
+                            <h3>Status</h3>
+                            <h4>{{authorization_status_array[value.status]}}
+                                <a *ngIf="value.file" style="text-decoration: none;" class="btn-link" href="{{image_path + value.file}}" 
+  download="authorization">
+  Download authorization
+</a>
+                             <!-- <button class="btn-link">Download authorization</button> --></h4>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="authorize_box">
+                        <p>You can apply for authorization by filling a form, company will approve & upload the letter, after that you can download it.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>State</label>
+                        <select class="form-control" (change)="getCollege($event.target.value)"  [(ngModel)]="state" [ngModelOptions]="{standalone: true}">
+                            <option value="">Select</option>
+                            <option  *ngFor="let val of st_list" value="{{val.id}}">{{val.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Collage</label>
+                        <select class="form-control"  [(ngModel)]="college" [ngModelOptions]="{standalone: true}">
+                            <option value="">Select</option>
+                             <option  *ngFor="let val of coll_list" value="{{val.id}}">{{val.college_name}}</option>
+                        </select>
+                    </div>
+                    <button class="btn" (click)="submit()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

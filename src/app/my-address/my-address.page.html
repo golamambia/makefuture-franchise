@@ -1,0 +1,32 @@
+
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Address</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+
+    <div class="apply_for_payout_area">
+        <div class="shape_box"><img src="assets/images/sape9.png" alt="sape9" title="" /></div>
+        <div class="apply_for_payout">
+            <div class="container">
+                <!-- <h1>Franchise Address</h1> -->
+                <div class="form_box">
+                    <h3>Personal Information</h3>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Address" [(ngModel)]="address" ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" (keypress)="onlyNumberKey($event)" maxlength="12" [(ngModel)]="aadhaar_number" placeholder="Aadhaar Number" />
+                    </div>
+                    <button class="btn" (click)="updateProfile()">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

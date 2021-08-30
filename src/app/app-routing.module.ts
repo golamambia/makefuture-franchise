@@ -73,8 +73,56 @@ const routes: Routes = [
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
    {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+   {
     path: 'our-service',
     loadChildren: () => import('./our-service/our-service.module').then( m => m.OurServicePageModule)
+  },
+  {
+    path: 'my-admission',
+    loadChildren: () => import('./my-admission/my-admission.module').then( m => m.MyAdmissionPageModule)
+  },
+  {
+    path: 'my-account',
+    loadChildren: () => import('./my-account/my-account.module').then( m => m.MyAccountPageModule)
+  },
+  {
+    path: 'redeem-point',
+    loadChildren: () => import('./redeem-point/redeem-point.module').then( m => m.RedeemPointPageModule)
+  },
+  {
+    path: 'my-offer',
+    loadChildren: () => import('./my-offer/my-offer.module').then( m => m.MyOfferPageModule)
+  },
+  {
+    path: 'student-list',
+    loadChildren: () => import('./student-list/student-list.module').then( m => m.StudentListPageModule)
+  },
+  {
+    path: 'membership',
+    loadChildren: () => import('./membership/membership.module').then( m => m.MembershipPageModule)
+  },
+  {
+    path: 'apply-authorization',
+    loadChildren: () => import('./apply-authorization/apply-authorization.module').then( m => m.ApplyAuthorizationPageModule)
+  },
+  {
+    path: 'apply-payout',
+    loadChildren: () => import('./apply-payout/apply-payout.module').then( m => m.ApplyPayoutPageModule)
+  },
+  {
+    path: 'contact-mentor',
+    loadChildren: () => import('./contact-mentor/contact-mentor.module').then( m => m.ContactMentorPageModule)
+  },
+  {
+    path: 'my-address',
+    loadChildren: () => import('./my-address/my-address.module').then( m => m.MyAddressPageModule)
+  },
+   {
+    path: 'change-password',
+    loadChildren: () => import('./change-password/change-password.module').then( m => m.ChangePasswordPageModule)
   },
 ];
 

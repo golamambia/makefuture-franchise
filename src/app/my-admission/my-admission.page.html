@@ -1,0 +1,69 @@
+
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">My Admission</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+
+    <div class="body_warrper">
+       <!--  <header class="header_area">
+            <div class="container">
+                <button class="btn-back"><img src="images/back.png" alt="back" title=""></button>
+                <button class="btn-nav"><img src="images/navbar.png" alt="back" title=""></button>
+                <h2>My Admission</h2>
+            </div>
+        </header> -->
+
+        <div class="body_area">
+
+            <div class="platform_main_area">
+                <div class="main_body_area" *ngIf="admission_list">
+                    
+                    <div class="admission_area" *ngFor="let al of admission_list">
+                        <div class="student_box">
+                            <img src="assets/images/img1.png" alt="icon" title="" class="img" />
+                            <h3>Student Name</h3>
+                            <p>{{al.name}}</p>
+                            <p>Admission no: <span>{{al.admission_no}}</span></p>
+                        </div>
+                        <div class="contain_box">
+                            <h4>College Name With Course</h4>
+                            <p>{{al.college_name}},{{al.course_name}}</p>
+                        </div>
+                        <div class="contain_box">
+                            <h4>Status</h4>
+                            <p>{{payment_status[al.payment_status]}}</p>
+                        </div>
+                        <div class="contain_box">
+                            <h4>Point Earned</h4>
+                            <p *ngIf="al.earn_point"> {{al.earn_point}}
+                            	{{pt_status[al.point_status]}}
+
+                            </p>
+                            <p *ngIf="!al.earn_point">0</p>
+                            	
+                        </div>
+                    </div>
+
+                 
+
+                </div>
+
+                 <div class="main_body_area" *ngIf="!admission_list?.length">
+
+                 	<h1 style="    text-align: center;color: #b14444;">No record</h1>
+                 </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</ion-content>

@@ -1,0 +1,142 @@
+
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">My Offers</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+
+    <div class="body_warrper">
+        <!-- <header class="header_area">
+            <div class="container">
+                <button class="btn-back"><img src="images/back.png" alt="back" title=""></button>
+                <button class="btn-nav"><img src="images/navbar.png" alt="back" title=""></button>
+                <h2>My Offers</h2>
+            </div>
+        </header> -->
+
+        <div class="body_area">
+
+            <div class="platform_main_area">
+                <div class="main_body_area">
+                    <div class="container">
+                        <div class="offer_area" *ngIf="myoffer">
+                            <h3>Promocode Offers</h3>
+                            <div class="offer_box">
+                                <h4>Coupon & Discount</h4>
+                                <h5>
+                                    <div *ngFor="let mo of myoffer">
+                                        <div *ngIf="mo.discount_type==1">
+                                        <div *ngIf="mo.discount_type==1">
+                                           Discount Coupon Code {{mo.promocode}} 
+                                        </div>
+                                        <div *ngIf="mo.discount_type==2">
+                                    
+                                        <div *ngIf="mo.bonus_type==1">
+                                         Total Admission Done: {{mo.admission}} 
+                                        </div>
+                                        <div *ngIf="mo.bonus_type==2">
+                                         Total Points Earned: {{mo.admission}} 
+                                        </div>
+                                     </div>
+                                     </div>
+                                 </div>
+                                </h5>
+                            </div>
+                            <div class="offer_box">
+                                <h4>Extra commission</h4>
+                                <h5><div *ngFor="let mo of myoffer">
+                                        <div *ngIf="mo.amount>0">
+                                           {{mo.amount}}  /-
+                                           <div *ngIf="mo.bonus_type==2 && mo.bonus">
+                                         {{mo.bonus}} 
+                                        </div>
+                                        </div>
+                                        <div *ngIf="!mo.amount>0">
+                                          <div *ngIf="mo.bonus_type==2 && mo.bonus">
+                                         {{mo.bonus}} 
+                                        </div>
+                                        </div>
+                                    </div>
+                                        </h5>
+                            </div>
+                        </div>
+                            <div class="offer_area" *ngIf="!myoffer?.length">
+                                <h3>Promocode Offers</h3>
+                                <div class="offer_box">
+                                <h4>Coupon & Discount</h4>
+                            </div>
+                            <div class="offer_box">
+                                 <h1 style="    text-align: center;color: #b14444;">No record</h1>
+                            </div>
+                   
+                 </div>
+                        
+                        <div class="offer_area">
+                            <h3>Target Base Offers</h3>
+                            <div class="offer_box">
+                                <h4>Target/ Milestone</h4>
+                                <h5>
+                                     <div *ngFor="let mo of myoffer">
+                                        <div *ngIf="mo.discount_type==2">
+                                        <div *ngIf="mo.discount_type==1">
+                                           Discount Coupon Code {{mo.promocode}} 
+                                        </div>
+                                        <div *ngIf="mo.discount_type==2">
+                                    
+                                        <div *ngIf="mo.bonus_type==1">
+                                        Submit total {{mo.admission}} number of admission, any college
+                                        </div>
+                                        <div *ngIf="mo.bonus_type==2">
+                                         Total Points Earned: {{mo.admission}} 
+                                        </div>
+                                     </div>
+                                     </div>
+                                 </div>
+
+                                </h5>
+
+                            </div>
+                            <div class="offer_box">
+                                <h4>Offers/ Gifts</h4>
+                                <h5><div *ngFor="let mo of myoffer">
+                                        <div *ngIf="mo.amount>0">
+                                           {{mo.amount}}  /-  additional bonus
+                                           <div *ngIf="mo.bonus_type==2 && mo.bonus">
+                                         {{mo.bonus}} 
+                                        </div>
+                                        </div>
+                                        <div *ngIf="!mo.amount>0">
+                                          <div *ngIf="mo.bonus_type==2 && mo.bonus">
+                                         {{mo.bonus}} 
+                                        </div>
+                                        </div>
+                                    </div></h5>
+                            </div>
+                        </div>
+
+                         <div class="offer_area" *ngIf="!myoffer?.length">
+                             <h3>Target Base Offers</h3>
+                                <div class="offer_box">
+                                <h4>Target/ Milestone</h4>
+                            </div>
+                            <div class="offer_box">
+                                 <h1 style="    text-align: center;color: #b14444;">No record</h1>
+                            </div>
+                   
+                 </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</ion-content>

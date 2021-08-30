@@ -1,0 +1,27 @@
+
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Contact Mentors</ion-title>
+  </ion-toolbar>
+</ion-header> 
+<ion-content>
+
+    <div class="apply_for_payout_area">
+        <div class="shape_box"><img src="assets/images/sape9.png" alt="sape9" title="" /></div>
+        <div class="apply_for_payout">
+            <div class="container">
+               <!--  <h1>Contact With Mentors</h1> -->
+                <div class="form_box">
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Message" [(ngModel)]="message"></textarea>
+                    </div>
+                    <button class="btn" (click)="submit()">submite</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

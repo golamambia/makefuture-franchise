@@ -52,6 +52,33 @@
           <li *ngIf="userDetails" routerLink="/profile" (click)="close()">
             <div class="menu_nav"><i class="fas fa-user"></i>Profile</div>
           </li>
+           <li *ngIf="userDetails" routerLink="/my-address" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-map-marker-alt"></i>Address</div>
+          </li>
+          <li *ngIf="userDetails" routerLink="/my-account" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-user"></i>My Account</div>
+          </li>
+          <li *ngIf="userDetails" routerLink="/my-admission" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-users"></i>My Admission</div>
+          </li>
+           <li *ngIf="userDetails" routerLink="/my-offer" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-tags"></i>My Offers</div>
+          </li>
+          <li *ngIf="userDetails" routerLink="/student-list" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-users"></i>Student List</div>
+          </li>
+          <li *ngIf="userDetails" routerLink="/membership" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-user"></i>Membership</div>
+          </li>
+           <li *ngIf="userDetails" routerLink="/apply-authorization" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-file"></i>Apply Authorization</div>
+          </li>
+           <li *ngIf="userDetails" routerLink="/apply-payout" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-money-bill"></i>Apply Payout</div>
+          </li>
+          <li *ngIf="userDetails" routerLink="/contact-mentor" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-address-book"></i>Contact Mentor</div>
+          </li>
           <li *ngIf="userDetails" routerLink="/change-password" (click)="close()">
             <div class="menu_nav"><i class="fas fa-lock"></i>Change password</div>
           </li>
