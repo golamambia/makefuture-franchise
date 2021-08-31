@@ -124,6 +124,10 @@ const routes: Routes = [
     path: 'change-password',
     loadChildren: () => import('./change-password/change-password.module').then( m => m.ChangePasswordPageModule)
   },
+  {
+    path: 'bank-information',
+    loadChildren: () => import('./bank-information/bank-information.module').then( m => m.BankInformationPageModule)
+  },
 ];
 
 @NgModule({

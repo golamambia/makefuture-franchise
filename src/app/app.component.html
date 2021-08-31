@@ -52,6 +52,12 @@
           <li *ngIf="userDetails" routerLink="/profile" (click)="close()">
             <div class="menu_nav"><i class="fas fa-user"></i>Profile</div>
           </li>
+           <li *ngIf="userDetails" routerLink="/bank-information" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-user"></i>Bank Information</div>
+          </li>
+           <li *ngIf="userDetails" routerLink="/redeem-point" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-user"></i>Redeem Points</div>
+          </li>
            <li *ngIf="userDetails" routerLink="/my-address" (click)="close()">
             <div class="menu_nav"><i class="fas fa-map-marker-alt"></i>Address</div>
           </li>

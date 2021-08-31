@@ -1,9 +1,89 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>redeemPoint</ion-title>
+
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Redeem Point</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> 
 
 <ion-content>
 
+    <div class="wrapper">
+        <!-- <header class="header_area">
+            <div class="container">
+                <button class="btn-back"><img src="images/back.png" alt="back" title=""></button>
+                <button class="btn-nav"><img src="images/navbar.png" alt="back" title=""></button>
+                <h2>Student List</h2>
+            </div>
+        </header> -->
+<div class="profile_area">
+            <!-- <div class="img_area">
+                <img src="assets/images/Man.png" alt="">
+            </div> -->
+        </div>
+      <div class="form_area">
+
+            <div class="container">
+                <div class="redeem_points_box">
+                    <p>Total redeemable points: {{total_redeem}} ({{total_redeem_no}})</p>
+                    <p>Already redeemed points: {{already_total_redeem}} ({{already_total_redeem_no}})</p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Points Earned</th>
+                                <th>Status</th>
+                            </tr>
+                             
+                            <tr  *ngFor="let value of redeemlist">
+                                <td> <div *ngIf="value.applyform_id>0">
+                        <a routerLink="/admission-view/">{{value.name}} <br>Admission no: {{value.admission_no}}</a> 
+                    </div>
+                        <div *ngIf="value.applyform_id==0">
+                        {{wallet_type_array[value.type]}} {{value.promocode}}
+                        </div></td>
+                                <td> <div *ngIf="value.amount>0">
+                        {{value.amount}} {{wallet_status_array[value.status]}} 
+                        </div>
+                        <div *ngIf="value.amount==0">
+                        0
+                        </div>
+                    </td>
+                                <td> <div *ngIf="value.amount>0 && value.status=='1'"> 
+                        <a href="#" class="btn btn-primary">Redeem now</a>
+                    </div>
+                    <div *ngIf="value.amount>0 && value.status=='2'"> 
+                       <div *ngIf="value.transaction_id!=null">Successful redeemed</div>
+                       <div *ngIf="value.transaction_id==null">Processing</div>
+                        
+                        <a href="#" class="btn btn-primary">Show details</a>
+                        </div></td>
+                            </tr>
+                           
+
+                            <tr *ngIf="!redeemlist?.length">
+                                <td colspan="3"> <h1 style="text-align: center;color: #b14444;">No record</h1></td>
+                                
+                            </tr>
+                        </table>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
 </ion-content>
+ <!--     <div class="offer_area" *ngIf="!studentlist?.length">
+                               
+                            <div class="offer_box">
+                                 <h1 style="text-align: center;color: #b14444;">No record</h1>
+                            </div>
+                   
+                 </div> -->

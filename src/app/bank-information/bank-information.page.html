@@ -1,0 +1,38 @@
+
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Bank Information</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+
+    <div class="apply_for_payout_area">
+        <div class="shape_box"><img src="assets/images/sape9.png" alt="sape9" title="" /></div>
+        <div class="apply_for_payout">
+            <div class="container">
+                <!-- <h1>Franchise Address</h1> -->
+                <div class="form_box">
+                    <h3>Bank Information</h3>
+                    <div class="form-group">
+                       <input type="text" class="form-control" [(ngModel)]="bank_holder_name" placeholder="Bank Holder Name" />
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Bank Address" [(ngModel)]="bank_address" ></textarea>
+                    </div>
+                     <div class="form-group">
+                        <input type="text" class="form-control"  maxlength="16" [(ngModel)]="bank_ifsc" placeholder="Bank IFSC Code" />
+                    </div>
+                     <div class="form-group">
+                        <input type="text" class="form-control" (keypress)="onlyNumberKey($event)" maxlength="16" [(ngModel)]="account_number" placeholder="Account Number" />
+                    </div>
+                    <button class="btn" (click)="updateProfile()">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-content>
