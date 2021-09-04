@@ -39,7 +39,7 @@
                              
                             <tr  *ngFor="let value of redeemlist">
                                 <td> <div *ngIf="value.applyform_id>0">
-                        <a routerLink="/admission-view/">{{value.name}} <br>Admission no: {{value.admission_no}}</a> 
+                        <a routerLink="/student-details/{{value.applyform_id}}">{{value.name}} <br>Admission no: {{value.admission_no}}</a> 
                     </div>
                         <div *ngIf="value.applyform_id==0">
                         {{wallet_type_array[value.type]}} {{value.promocode}}
@@ -55,9 +55,10 @@
                         <a href="#" class="btn btn-primary">Redeem now</a>
                     </div>
                     <div *ngIf="value.amount>0 && value.status=='2'"> 
-                       <div *ngIf="value.transaction_id!=null">Successful redeemed</div>
-                       <div *ngIf="value.transaction_id==null">Processing</div>
-                        
+                    	
+                       <!-- <div *ngIf="value.transaction_id!=null">Successful redeemed</div>
+                       <div *ngIf="value.transaction_id==null">Processing</div> -->
+                        {{value.transaction_id!=null?'Successful redeemed':'Processing'}}
                         <a href="#" class="btn btn-primary">Show details</a>
                         </div></td>
                             </tr>

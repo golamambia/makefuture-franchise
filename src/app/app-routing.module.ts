@@ -128,6 +128,10 @@ const routes: Routes = [
     path: 'bank-information',
     loadChildren: () => import('./bank-information/bank-information.module').then( m => m.BankInformationPageModule)
   },
+  {
+    path: 'student-details/:id',
+    loadChildren: () => import('./student-details/student-details.module').then( m => m.StudentDetailsPageModule)
+  },
 ];
 
 @NgModule({

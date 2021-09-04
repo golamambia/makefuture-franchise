@@ -102,7 +102,7 @@ img {
 
 .apply_for_payout .form_box {
     width: 100%;
-    min-height: 358px;
+    /*min-height: 358px;*/
     box-sizing: border-box;
     border-radius: 30px;
     padding: 25px 25px 80px;
@@ -161,4 +161,44 @@ img {
     right: 0;
     margin: auto;
     width: 85%;
+}
+.redeem_points_box{
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+.redeem_points_box p{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0;
+    margin: 10px 0 10px;
+    color: #000000;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+}
+table, th, td {
+  border:1px solid black;
+}
+.table {
+    width: 100%;
+    margin: 0px 0 10px;
+}
+.table th,.table td{
+    padding: 5px 5px;
+}
+.btn-show {
+    background: #099fea;
+    border: 1px solid #099fea;
+    font-size: 12px;
+    padding: 10px 15px;
+    margin: 5px 0 5px;
+    color: #fff;
+    cursor: pointer;
+}
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }

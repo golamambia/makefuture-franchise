@@ -72,7 +72,7 @@ this.storage.get("userDetails").then(val=>{
 	.subscribe(res => {
 		
 		this.res = res.json();
-		console.log(this.res);
+		//console.log(this.res);
 		 if(this.res.status){
 		 	loading.dismiss();
 	
@@ -102,7 +102,7 @@ this.storage.get("userDetails").then(val=>{
   .subscribe(res => {
     
     this.res = res.json();
-    console.log(this.res);
+    //console.log(this.res);
      if(this.res.status){
 
  this.coll_list =this.res.response_data.colleges;
@@ -115,7 +115,7 @@ this.storage.get("userDetails").then(val=>{
     }
   }, (err) => {
     //this.loading.hide();
-    console.log(err);
+    //console.log(err);
     
   });
 }

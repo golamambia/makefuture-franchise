@@ -23,94 +23,74 @@
             <div class="platform_main_area">
                 <div class="main_body_area">
 
-                    <div class="admission_area">
+                    <div *ngIf="redeemlist?.length">
+                    <div class="admission_area" *ngFor="let value of redeemlist">
                         <div class="student_box">
-                            <img src="assets/images/img1.png" alt="icon" title="" class="img" />
+                            <div *ngIf="value.avatar">
+                              <img routerLink="/student-details/{{value.id}}" src="{{imag_path + value.avatar}}" alt="icon" title="" class="img" />   
+                            </div>
+                            <div *ngIf="!value.avatar">
+                              <img routerLink="/student-details/{{value.id}}" src="assets/images/img1.png" alt="icon" title="" class="img" />   
+                            </div>
+                            
                             <h3>Student Name</h3>
-                            <p>John Smith</p>
-                            <p>Admission no: <span>21PGPEM0203</span></p>
+                            <p routerLink="/student-details/{{value.id}}">{{value.name}} </p>
+                            <p>Admission no: <span>{{value.admission_no}}</span></p>
                         </div>
                         <div class="contain_box">
                             <h4>College Name With Course</h4>
-                            <p>Programme in Enterprise Management,MBA/PGDM</p>
-                        </div>
-                        <div class="contain_box">
-                            <h4>Status</h4>
-                            <p>Success</p>
+                            <p>{{value.college_name}}, {{value.course_name}}</p>
                         </div>
                         <div class="contain_box">
                             <h4>Point Earned</h4>
-                            <p> 2000Ready to redeem</p>
-                        </div>
-                    </div>
-                    <div class="admission_area">
-                        <div class="student_box">
-                            <img src="assets/images/img1.png" alt="icon" title="" class="img" />
-                            <h3>Student Name</h3>
-                            <p>John Smith</p>
-                            <p>Admission no: <span>21PGPEM0203</span></p>
-                        </div>
-                        <div class="contain_box">
-                            <h4>College Name With Course</h4>
-                            <p>Programme in Enterprise Management,MBA/PGDM</p>
+                            <p *ngIf="value.earn_point>0"> {{value.earn_point}}</p>
+                            <p *ngIf="!value.earn_point>0">0</p>
                         </div>
                         <div class="contain_box">
                             <h4>Status</h4>
-                            <p>Success</p>
+                            <p>{{wallet_status_array[value.point_status]}}</p>
                         </div>
-                        <div class="contain_box">
-                            <h4>Point Earned</h4>
-                            <p> 2000Ready to redeem</p>
-                        </div>
+                        
                     </div>
-                    <div class="admission_area">
-                        <div class="student_box">
-                            <img src="assets/images/img1.png" alt="icon" title="" class="img" />
-                            <h3>Student Name</h3>
-                            <p>John Smith</p>
-                            <p>Admission no: <span>21PGPEM0203</span></p>
-                        </div>
-                        <div class="contain_box">
-                            <h4>College Name With Course</h4>
-                            <p>Programme in Enterprise Management,MBA/PGDM</p>
-                        </div>
-                        <div class="contain_box">
-                            <h4>Status</h4>
-                            <p>Success</p>
-                        </div>
-                        <div class="contain_box">
-                            <h4>Point Earned</h4>
-                            <p> 2000Ready to redeem</p>
-                        </div>
                     </div>
+                    <div class="admission_area" *ngIf="!redeemlist?.length">
+                               
+                            <div class="contain_box">
+                                 <h1 style="text-align: center;color: #b14444;">No record</h1>
+                            </div>
+                   
+                 </div>
 
                     <div class="admission_area">
                         <div class="contain_box">
                             <h4>Total successful admission done</h4>
-                            <p>3 (Three)</p>
+                            <p>{{total_admission_done}} ({{total_admission_donewd}})</p>
                             <h4>Total point earned</h4>
-                            <p>6800 (Six Thousand Eight Hundred)</p>
+                            <p>{{total_point_earned}} ({{total_point_earnedwd}})</p>
                             <h4>Total redeemable points</h4>
-                            <p>6000 (Six Thousand)</p>
+                            <p>{{total_redeem}} ({{total_redeem_no}})</p>
                             <h4>Total not ready to redeem points</h4>
-                            <p>0 (Zero)</p>
+                            <p>{{total_not_ready_to_redeem_points}} ({{total_not_ready_to_redeem_pointswd}})</p>
                             <h4>Already redeemed points</h4>
-                            <p>800 (Eight Hundred)</p>
+                            <p>{{already_total_redeem}} ({{already_total_redeem_no}})</p>
                             <h4>Extra bonus earning</h4>
-                            <p>Samsung galaxy 7</p>
-                            <p>You have earned this gift as you have completed</p>
-                            <p>the milestone of 1000 (One Thousand) points</p>
+                            <div *ngFor="let value of extra_bonus_earned">
+                                <p>{{value}}</p>
+                            </div>
+                            
+                            <p></p>
+                             <p>You have earned this gift as you have completed the milestone of {{total_bonus_earned}} ({{total_bonus_earned}}) points. </p>
                         </div>
                     </div>
 
                     <div class="bank_details_box">
                         <div class="container">
                             <h3>Your Registered Bank Details</h3>
-                            <p>Bank Holder Name: John Smith</p>
-                            <p>Bank Address: SBI KOTULPUR</p>
-                            <p>Bank IFSC Code: SBIN1234567</p>
-                            <p>Account Number: 1234567799</p>
-                            <button class="btn-success">Apply to change or edit your account details</button>
+                            <p *ngIf="user_info?.bank_holder_name">Bank Holder Name: {{user_info?.bank_holder_name}}</p>
+                            <p *ngIf="user_info?.bank_address">Bank Address: {{user_info?.bank_address}}</p>
+                            <p *ngIf="user_info?.bank_ifsc">Bank IFSC Code: {{user_info?.bank_ifsc}}</p>
+                            <p *ngIf="user_info?.account_number">Account Number: {{user_info?.account_number}}</p>
+                            <button routerLink="/bank-information" class="btn-success">Apply to change or edit your account details</button>
                         </div>
                     </div>
 

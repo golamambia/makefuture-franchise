@@ -24,33 +24,33 @@
             <div class="platform_main_area">
                 <div class="main_body_area">
                     <div class="container">
-                        <div>
-                      <!--   <div  *ngIf="studentlist"> -->
-                       <div>
-                            <!-- <div class="offer_area" *ngFor="let sl of studentlist"> -->
+                        
+                        <div  *ngIf="studentlist">
+                      
+                            <div class="offer_area" *ngFor="let sl of studentlist">
                       
                             <div class="offer_box">
                                 <h4>Subject Name</h4>
                                 
-                                <!-- <h5>{{sl.first_name + sl.last_name}}</h5> -->
-                                <h5>abc </h5>
+                                <h5>{{sl.first_name + sl.last_name}}</h5>
+                               
                             </div>
                             <div class="offer_box">
                                 <h4>Email</h4>
-                               <!--  <h5>{{sl.email}}</h5> -->
-                               <h5>demo@gmil.com</h5>
+                                <h5>{{sl.email}}</h5>
+                              
                                 
                             </div>
                         </div>
 
                         </div>
-                     <!--     <div class="offer_area" *ngIf="!studentlist?.length">
+                         <div class="offer_area" *ngIf="!studentlist?.length">
                                
                             <div class="offer_box">
                                  <h1 style="text-align: center;color: #b14444;">No record</h1>
                             </div>
                    
-                 </div> -->
+                 </div>
                         
                     </div>
                 </div>

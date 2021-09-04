@@ -1,0 +1,104 @@
+
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Admission View</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+    <div class="body_warrper">
+        <!-- <header class="header_area">
+            <div class="container">
+                <button class="btn-back"><img src="images/back.png" alt="back" title=""></button>
+                <button class="btn-nav"><img src="images/navbar.png" alt="back" title=""></button>
+                <h2>My Account</h2>
+            </div>
+        </header> -->
+
+        <div class="body_area">
+
+            <div class="platform_main_area">
+                <div class="main_body_area">
+                	 <div class="form_area">
+
+            <div class="container">
+                <div class="redeem_points_box">                    
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th>Name</th>
+                                <td>{{student_info?.name}}</td>
+                            </tr>
+                             <tr>
+                        <th>Admission no:</th>
+                        <td>{{student_info?.admission_no }}</td>
+                      </tr>
+                            <tr>
+                        <th>Father Name</th>
+                        <td>{{student_info?.father_name }}</td>
+                      </tr>
+                       <tr *ngIf="student_info?.parmanent_address">
+                        <th>Parmanent Address</th>
+                        <td>{{student_info?.parmanent_address }}</td>
+                      </tr>
+                      <tr *ngIf="student_info?.local_address">
+                        <th>Local Guardian Address</th>
+                        <td>{{student_info?.local_address }}</td>
+                      </tr>
+                            <tr>
+                                <th>DOB</th>
+                                <td>{{student_info?.dob | date:'MMMM dd, yyyy'}}</td>
+                            </tr>
+                            <tr>
+                                <th>Collage</th>
+                               <td>{{student_info?.college_name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Course</th>
+                                <td>{{student_info?.course_name }} ({{student_info?.academic_year }} Batch)</td>
+                            </tr>
+                            <tr>
+                                <th>Contact No.</th>
+                                <td>{{student_info?.student_mobile }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{student_info?.email }}</td>
+                            </tr>
+                        </table>
+                        <!-- <a [href]="{{imag_path + }}" [download]="filename">Download
+
+</a> -->
+                        <button class="btn-show" (click)="download_file(student_info?.id)">Download Application Form</button>
+                    </div>
+                    <div *ngIf="student_info?.earn_point>0">
+                    	 <p>Point earned: {{student_info?.earn_point }} </p>
+                    <p>{{wallet_status_array[student_info?.point_status]}}</p>
+
+                    </div>
+                    <div *ngIf="student_info?.earn_point>0 && student_info?.point_status=='1'">
+                    	
+                      <a href="#" class="btn btn-primary">Redeem your points</a>
+                     
+                    </div>
+                     <div *ngIf="userDetails?.mentor_details">
+                    	<p>Please contact with your mentor for any query</p>
+                    	<p>MFT MENTOR DETAILS:</p>
+                        <p>{{userDetails?.mentor_details}}
+                      </p>
+                    </div>
+                   
+                </div>
+            </div>
+
+        </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</ion-content>

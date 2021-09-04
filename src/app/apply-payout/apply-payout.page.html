@@ -18,18 +18,39 @@
                 <div class="form_box">
                     <div class="form-group">
                         <label>State</label>
-                        <select class="form-control">
-                            <option>Select</option>
+                        <select class="form-control" (change)="getCollege($event.target.value)"  [(ngModel)]="state" [ngModelOptions]="{standalone: true}">
+                            <option value="">Select</option>
+                            <option  *ngFor="let val of st_list" value="{{val.id}}">{{val.name}}</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Collage</label>
-                        <select class="form-control">
-                            <option>Select</option>
+                         <select class="form-control"  [(ngModel)]="college" [ngModelOptions]="{standalone: true}">
+                            <option value="">Select</option>
+                             <option  *ngFor="let val of coll_list" value="{{val.id}}">{{val.college_name}}</option>
                         </select>
                     </div>
-                    <button class="btn">update</button>
+                    <button class="btn" (click)="submit()">Submit</button>
                 </div>
+<div class="redeem_points_box"  *ngIf="payout_list?.length">                    
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th>Course</th>
+                                <th>Payout</th>
+                            </tr>
+                            <tr *ngFor="let value of payout_list">
+                                <td>{{value.name}}</td>
+                                <td>{{value.earn_point}}</td>
+                            </tr>
+                         
+                        </table>
+                       
+                    </div>
+                   
+                </div>
+
+
             </div>
         </div>
     </div>

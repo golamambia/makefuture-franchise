@@ -26,9 +26,14 @@
                     
                     <div class="admission_area" *ngFor="let al of admission_list">
                         <div class="student_box">
-                            <img src="assets/images/img1.png" alt="icon" title="" class="img" />
+                           <div *ngIf="al.avatar">
+                              <img routerLink="/student-details/{{al.id}}" src="{{imag_path + al.avatar}}" alt="icon" title="" class="img" />   
+                            </div>
+                            <div *ngIf="!al.avatar">
+                              <img routerLink="/student-details/{{al.id}}" src="assets/images/img1.png" alt="icon" title="" class="img" />   
+                            </div>
                             <h3>Student Name</h3>
-                            <p>{{al.name}}</p>
+                            <p routerLink="/student-details/{{al.id}}">{{al.name}}</p>
                             <p>Admission no: <span>{{al.admission_no}}</span></p>
                         </div>
                         <div class="contain_box">
